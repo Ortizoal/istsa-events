@@ -1,0 +1,71 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+    function uid() {
+      return request.auth.uid;
+    }
+    function profile() {
+      return get(/databases/$(database)/documents/users/$(uid())).data;
+    }
+    function role() {
+      return signedIn() ? profile().role : '';
+    }
+    function isStaff() {
+      return signedIn() && (role() == 'officer' || role() == 'admin');
+    }
+    function isAdmin() {
+      return signedIn() && role() == 'admin';
+    }
+
+    // Profiles are keyed by auth uid. Role changes are admin-only; the
+    // bootstrap-admin promotion is handled server-side by a Cloud Function.
+    match /users/{userId} {
+      allow read: if signedIn() && (userId == uid() || isStaff());
+      allow create: if signedIn()
+        && userId == uid()
+        && request.resource.data.uid == uid()
+        && request.resource.data.role == 'student';
+      allow update: if signedIn() && (
+        isAdmin()
+        || (
+          userId == uid()
+          && request.resource.data.role == resource.data.role
+          && request.resource.data.uid == resource.data.uid
+        )
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Events: anyone signed in can read published events; staff manage all.
+    match /events/{eventId} {
+      allow read: if resource.data.status == 'published' || isStaff();
+      allow create: if isStaff() && request.resource.data.hostUid == uid();
+      allow update, delete: if isStaff();
+    }
+
+    // Registrations: attendees see their own; staff see and manage all.
+    // Attendees may only cancel their own (status change), never self check-in.
+    match /registrations/{regId} {
+      allow read: if signedIn() && (resource.data.userId == uid() || isStaff());
+      allow create: if signedIn()
+        && request.resource.data.userId == uid()
+        && request.resource.data.checkedIn == false;
+      allow update: if signedIn() && (
+        isStaff()
+        || (
+          resource.data.userId == uid()
+          && request.resource.data.userId == resource.data.userId
+          && request.resource.data.checkedIn == resource.data.checkedIn
+          && request.resource.data.token == resource.data.token
+          && request.resource.data.code == resource.data.code
+        )
+      );
+      allow delete: if isStaff();
+    }
+  }
+}

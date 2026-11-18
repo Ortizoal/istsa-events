@@ -1,0 +1,13 @@
+$ svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+Loading svelte-check in workspace: c:\Users\ortiz\OneDrive - Accra Technical University\Documents\istsa-portal
+Getting Svelte diagnostics...
+
+c:\Users\ortiz\OneDrive - Accra Technical University\Documents\istsa-portal\[32msrc\lib\components\EventForm.svelte[39m:38:33
+[33mWarn[39m: This reference only captures the initial value of `initial`. Did you mean to reference it inside a derived instead?
+https://svelte.dev/e/state_referenced_locally (svelte)
+[36m
+  let form = $state<EventInput>([35minitial[36m ?? blank);[39m
+
+====================================
+[33msvelte-check found 0 errors and 1 warning in 1 file
+[39m

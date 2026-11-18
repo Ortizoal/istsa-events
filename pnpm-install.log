@@ -1,0 +1,58 @@
+✓ Lockfile passes supply-chain policies (verified 6h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: C:\Users\ortiz\AppData\Local\pnpm\store\v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 30, reused 30, downloaded 0, added 27
+Progress: resolved 46, reused 46, downloaded 0, added 43
+Progress: resolved 90, reused 90, downloaded 0, added 87
+Progress: resolved 105, reused 105, downloaded 0, added 102
+Progress: resolved 124, reused 124, downloaded 0, added 121
+Progress: resolved 130, reused 130, downloaded 0, added 127
+Progress: resolved 139, reused 139, downloaded 0, added 136
+Progress: resolved 163, reused 163, downloaded 0, added 160
+Progress: resolved 198, reused 198, downloaded 0, added 195
+Progress: resolved 246, reused 246, downloaded 0, added 243
+Progress: resolved 279, reused 279, downloaded 0, added 276
+Progress: resolved 305, reused 305, downloaded 0, added 302
+Progress: resolved 308, reused 308, downloaded 0, added 308
+Packages: +308
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 308, reused 308, downloaded 0, added 308, done
+. prepare$ svelte-kit sync || echo ''
+. prepare: Done
+
+dependencies:
++ firebase 13.1.0
++ html5-qrcode 2.3.8
++ qrcode 1.5.4
+
+devDependencies:
++ @eslint/js 10.0.1
++ @sveltejs/adapter-vercel 7.0.1
++ @sveltejs/kit 3.1.0
++ @sveltejs/vite-plugin-svelte 7.3.1
++ @tailwindcss/vite 4.3.3
++ @types/node 24.19.2
++ eslint 10.13.0
++ eslint-config-prettier 10.1.8
++ eslint-plugin-svelte 3.23.1
++ globals 17.13.0
++ prettier 3.9.10
++ prettier-plugin-svelte 4.1.1
++ prettier-plugin-tailwindcss 0.8.1
++ svelte 5.57.2
++ svelte-check 4.7.7
++ tailwindcss 4.3.3
++ typescript 6.0.3
++ typescript-eslint 8.72.0
++ vite 8.3.5
+
+Error: ERR_PNPM_IGNORED_BUILDS
+
+  × installing dependencies
+  ╰─▶ Ignored build scripts: @firebase/util@1.15.3, protobufjs@7.6.6
+  help: Run "pnpm approve-builds" to pick which dependencies should be allowed
+        to run scripts.
+

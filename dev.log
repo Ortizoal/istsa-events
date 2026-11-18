@@ -1,0 +1,22 @@
+$ vite dev --host
+[2m1:49:14 am[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m connected.
+
+  [32m[1mVITE[22m v8.3.5[39m  [2mready in [0m[1m4567[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.56.1:[1m5173[22m/[39m   [2mEthernet 2[22m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.136.1:[1m5173[22m/[39m  [2mVMware Network Adap…[22m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.131.1:[1m5173[22m/[39m  [2mVMware Network Adap…[22m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.100.6:[1m5173[22m/[39m  [2mWiFi[22m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+1:51:46 am [vite-plugin-svelte] src/lib/components/Logo.svelte:16:2 Redundant role 'img'
+https://svelte.dev/e/a11y_no_redundant_roles
+200 GET /
+200 GET /
+404 GET /istsa-logo.png
+1:51:48 am [vite-plugin-svelte] src/lib/components/Logo.svelte:16:2 Redundant role 'img'
+https://svelte.dev/e/a11y_no_redundant_roles
+[2m1:51:58 am[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+[2m1:52:00 am[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m program reload
+200 GET /
+404 GET /istsa-logo.png
